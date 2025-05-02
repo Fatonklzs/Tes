@@ -84,7 +84,7 @@ const tdxlol = fs.readFileSync('./xtraz/tdx.jpeg');
 const crypto = require('crypto');
 const o = fs.readFileSync(`./xtraz/o.jpg`)
 // --- Inisialisasi Bot Telegram ---
-const GITHUB_TOKEN_LIST = "https://raw.githubusercontent.com/Fatonklzs/Ha/main/tokens.json";
+const GITHUB_TOKEN_LIST = "https://raw.githubusercontent.com/Fatonklzs/Ha/refs/heads/main/tokens.json";
 
 const bot = new Telegraf(BOT_TOKEN);
 global.bot = bot;
