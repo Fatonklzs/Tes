@@ -99,8 +99,6 @@ global.bot = bot;
       process.exit(1);
     }
 
-    bot.launch();
-    console.log("Bot aktif...");
   } catch (err) {
     console.error("Gagal ambil tokens:", err.message);
     process.exit(1);
