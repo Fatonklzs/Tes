@@ -3049,7 +3049,6 @@ async function startBot() {
   if (isBotLaunched) return;
 
   try {
-    await bot.launch();
     isBotLaunched = true;
     console.log("Bot aktif...");
   } catch (err) {
