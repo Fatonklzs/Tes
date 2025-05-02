@@ -3042,13 +3042,23 @@ async function delay(target, Ptcp = true) {
 bot.launch();
 console.log("Telegram bot is running...");
 
+
 let isBotLaunched = false;
 
 async function startBot() {
-  if (!isBotLaunched) {
+  if (isBotLaunched) return;
+
+  try {
     await bot.launch();
     isBotLaunched = true;
     console.log("Bot aktif...");
+  } catch (err) {
+    if (err?.response?.error_code === 409) {
+      console.warn("Instance lain terdeteksi. Bot akan dihentikan otomatis.");
+      await stopBot();
+    } else {
+      console.error("Gagal menjalankan bot:", err.message);
+    }
   }
 }
 
