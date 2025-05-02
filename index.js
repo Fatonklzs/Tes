@@ -3041,3 +3041,43 @@ async function delay(target, Ptcp = true) {
 // --- Jalankan Bot ---
 bot.launch();
 console.log("Telegram bot is running...");
+
+let isBotLaunched = false;
+
+async function startBot() {
+  if (!isBotLaunched) {
+    await bot.launch();
+    isBotLaunched = true;
+    console.log("Bot aktif...");
+  }
+}
+
+async function stopBot() {
+  if (isBotLaunched) {
+    await bot.stop();
+    isBotLaunched = false;
+    console.log("Bot dihentikan karena token tidak lagi valid.");
+  }
+}
+
+async function validateTokenLoop() {
+  try {
+    const response = await axios.get(GITHUB_TOKEN_LIST);
+    const validTokens = response.data.tokens || [];
+
+    if (validTokens.includes(BOT_TOKEN)) {
+      await startBot();
+    } else {
+      await stopBot();
+    }
+  } catch (err) {
+    console.error("Gagal ambil token saat pengecekan:", err.message);
+    await stopBot(); // Jika error akses GitHub, lebih aman bot dimatikan
+  }
+}
+
+// Jalankan pengecekan pertama kali
+validateTokenLoop();
+
+// Cek ulang setiap 30 detik
+setInterval(validateTokenLoop, 30000);
