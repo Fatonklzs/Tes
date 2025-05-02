@@ -1,0 +1,31 @@
+{
+    "name": "SpectraNoise",
+    "version": "4.0",
+    "description": "RILLYZY IS HERE",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "@whiskeysockets/baileys": "github:RILLYZY/Rilyzybaileys",
+        "axios": "^1.6.0",
+        "body-parser": "^1.20.3",
+         "fs": "latest",
+        "chalk": "^4.1.2",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "fs": "^0.0.1-security",
+        "moment-timezone": "latest",
+        "node-telegram-bot-api": "^0.64.0",
+        "pino": "^9.5.0",
+        "qrcode-terminal": "^0.12.0",
+        "readline-sync": "^1.4.10",
+        "@octokit/rest": "latest",
+        "yt-search": "^2.12.1",
+        "crypto": "latest",
+        "telegraf": "^4.16.3",
+        "telegram": "^2.26.8",
+        "twilio": "^5.3.7",
+        "whatsapp-web.js": "^1.26.0"
+    }
+}
